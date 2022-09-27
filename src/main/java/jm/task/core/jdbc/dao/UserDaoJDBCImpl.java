@@ -3,15 +3,15 @@ package jm.task.core.jdbc.dao;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
-import javax.transaction.Transactional;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
-    private static final Connection conn = Util.getConnection();
+    private static Connection conn = null;
 
     public UserDaoJDBCImpl() {
+        conn = Util.getConnection();
     }
 
     public void createUsersTable() {
